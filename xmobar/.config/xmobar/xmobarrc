@@ -11,7 +11,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %StdinReader%  }{ %battery% | %date% || %kbd% "
+   , template = " %StdinReader%  }{ %pacUpdate% | %battery% | %date% || %kbd% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -42,6 +42,9 @@ Config {
                              ] 36000
 	--StdinReader
 	, Run StdinReader
+
+	-- pacUpdate Script
+	, Run Com "/home/nick/Bin/pacUpdate.sh" [] "pacUpdate" 36000
 
         -- network activity monitor (dynamic interface resolution)
         , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
