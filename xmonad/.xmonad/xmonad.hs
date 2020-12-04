@@ -14,8 +14,9 @@ import XMonad.Actions.Warp
 import XMonad.Prompt
 import XMonad.Prompt.Shell 
 
+import XMonad.Layout.Grid
 import XMonad.Util.Run
-
+import XMonad.Layout.Grid
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Spacing
@@ -161,6 +162,7 @@ myLayoutHook = mkToggle (single NBFULL) (myDefaultLayout)
                myDefaultLayout =     mastStack
 				 ||| centMast
 				 ||| monocle
+				 ||| grid
 
 mastStack = renamed [Replace "Master and Stack"]
 	$ mySpacing False 6
@@ -171,6 +173,9 @@ centMast = renamed [Replace "Centered Master"]
 monocle = renamed [Replace "Monocle"] 
 	$ mySpacing False 6
 	$ Full
+grid = renamed [Replace "Grid"] 
+	$ mySpacing False 6
+	$ Grid
 ------------------------------------------------------------------------
 -- Window rules:
 ------------------------------------------------------------------------
@@ -212,9 +217,9 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 myBar = "xmobar"
 myPP = xmobarPP { ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]" -- Current workspace in xmobar
                 , ppVisible = xmobarColor "#98be65" ""                -- Visible but not current workspace
-                , ppHidden = xmobarColor "#82AAFF" "" . wrap "*" ""   -- Hidden workspaces in xmobar
+                , ppHidden = xmobarColor "#82AAFF" ""                 -- Hidden workspaces in xmobar
                 , ppHiddenNoWindows = xmobarColor "#c792ea" ""        -- Hidden workspaces (no windows)
-                , ppTitle = xmobarColor "#b3afc2" "" . shorten 150     -- Title of active window in xmobar
+                , ppTitle = xmobarColor "#b3afc2" "" . shorten 150    -- Title of active window in xmobar
 		, ppExtras  = [windowCount]                           -- # of windows current workspace
 		, ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
                         }
