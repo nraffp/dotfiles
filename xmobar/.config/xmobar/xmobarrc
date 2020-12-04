@@ -1,7 +1,9 @@
 Config { 
 
    -- appearance
-     font =         "xft:JetBrainsMono Nerd Font:pixelsize=12"
+     font =         "xft:JetBrainsMono Nerd Font:pixelsize=12",
+     additionalFonts = ["xft:Font Awesome 5 Free Solid:style=solid:pixelsize=13"]
+
    , bgColor =      "#282c34"
    , fgColor =      "#646464"
    , position =     Top
@@ -11,7 +13,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %StdinReader%  }{ %pacUpdate% | %battery% | %date% || %kbd% "
+   , template = " %StdinReader%  }{  %pacUpdate% | %battery% | 﨟 %date% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
