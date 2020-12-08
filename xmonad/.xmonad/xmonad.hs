@@ -8,6 +8,7 @@
 import XMonad
 import Data.Monoid
 import System.Exit
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
 import XMonad.Actions.Warp
 
@@ -80,6 +81,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  , ((modm .|. shiftMask, xK_b     ), spawn myBrowser)          	         -- Launch Broswer
  , ((modm .|. shiftMask, xK_p     ), spawn "$HOME/Bin/editConf.sh")      -- Launch Dmenu Quick Actions
  , ((modm,               xK_p     ), spawn "dmenu_run")		         -- Launch Dmenu
+ , ((modm,               xK_v     ), spawn "alacritty -t ncpamixer -e ncpamixer")		         -- Launch Volume Controls
  , ((modm .|. shiftMask, xK_c     ), kill)				 -- Close Focus Window
  , ((modm,               xK_space ), sendMessage NextLayout)             -- Rotate through the available layout 
  , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) -- Reset the layouts
@@ -185,6 +187,7 @@ myManageHook =
     composeAll
      [ className =? "MPlayer"        --> doFloat
      , className =? "Gimp"           --> doFloat
+     , title =? "ncpamixer"           --> doCenterFloat
      , title =? "Picture-in-Picture"           --> doFloat
      , resource  =? "desktop_window" --> doIgnore
      , resource  =? "kdesktop"       --> doIgnore ]
@@ -212,14 +215,15 @@ myStartupHook = return ()
 ------------------------------------------------------------------------
 
 --main = xmonad =<< xmobar myConfig
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
+main  = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
-myBar = "xmobar"
-myPP = xmobarPP { ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]" -- Current workspace in xmobar
+myBar = "/home/nick/.local/bin/xmobar" --flags=\"with_alsa\""
+
+myPP  =  xmobarPP { ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]" -- Current workspace in xmobar
                 , ppVisible = xmobarColor "#98be65" ""                -- Visible but not current workspace
                 , ppHidden = xmobarColor "#82AAFF" ""                 -- Hidden workspaces in xmobar
                 , ppHiddenNoWindows = xmobarColor "#c792ea" ""        -- Hidden workspaces (no windows)
-                , ppTitle = xmobarColor "#b3afc2" "" . shorten 150    -- Title of active window in xmobar
+                , ppTitle = xmobarColor "#0095ff" "" . shorten 150    -- Title of active window in xmobar
 		, ppExtras  = [windowCount]                           -- # of windows current workspace
 		, ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
                         }

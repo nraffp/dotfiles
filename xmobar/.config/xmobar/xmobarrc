@@ -1,3 +1,4 @@
+
 Config { 
 
    -- appearance
@@ -5,7 +6,7 @@ Config {
      additionalFonts = ["xft:Font Awesome 5 Free Solid:style=solid:pixelsize=13"]
 
    , bgColor =      "#282c34"
-   , fgColor =      "#646464"
+   , fgColor =      "#bfbfbf"
    , position =     Top
    , border =       BottomB
    , borderColor =  "#646464"
@@ -13,7 +14,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %StdinReader%  }{  %pacUpdate% | %battery% | 﨟 %date% "
+   , template = " %StdinReader%  }{ <fc=#8e69ff:2> %disku%</fc> | %default:Master% | <fc=#ff9419:2> %pacUpdate%</fc>|   %battery% | <fc=#0095ff:2>﨟 %date%</fc> "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -44,6 +45,15 @@ Config {
                              ] 36000
 	--StdinReader
 	, Run StdinReader
+
+	--Disk Space
+	,Run DiskU [("/","<free>")] [] 60
+
+	--Player
+	, Run Mpris1 "spotify" [] 10
+
+	--Volume
+	, Run Volume "default" "Master" [] 10
 
 	-- pacUpdate Script
 	, Run Com "/home/nick/Bin/pacUpdate.sh" [] "pacUpdate" 36000
@@ -85,10 +95,8 @@ Config {
                              ] 10
 
         -- battery monitor
-        , Run Battery        [ "--template" , "Batt: <acstatus>"
+        , Run Battery        [ "--template" , "<acstatus>"
                              , "--Low"      , "10"        -- units: %
-                             , "--High"     , "80"        -- units: %
-                             , "--low"      , "darkred"
                              , "--normal"   , "darkorange"
                              , "--high"     , "darkgreen"
 
@@ -102,8 +110,8 @@ Config {
                              ] 50
 
         -- time and date indicator 
-        --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+        -- (%F = y-m-d date, %a = day of week, %T = h:m:s time)
+        , Run Date           "%F (%a) %T" "date" 10
 
         -- keyboard layout indicator
         , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")
