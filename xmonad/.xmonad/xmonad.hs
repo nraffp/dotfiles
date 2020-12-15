@@ -10,8 +10,9 @@ import Data.Monoid
 import System.Exit
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
-import XMonad.Actions.Warp
 
+import XMonad.Actions.Warp
+import XMonad.Actions.NoBorders
 import XMonad.Prompt
 import XMonad.Prompt.Shell 
 
@@ -80,7 +81,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)       -- Launch Terminal
  , ((modm .|. shiftMask, xK_b     ), spawn myBrowser)          	         -- Launch Broswer
  , ((modm .|. shiftMask, xK_p     ), spawn "$HOME/Bin/editConf.sh")      -- Launch Dmenu Quick Actions
- , ((modm,               xK_p     ), spawn "dmenu_run")		         -- Launch Dmenu
+ , ((modm,               xK_p     ), spawn "rofi -show drun")		         -- Launch Dmenu
  , ((modm,               xK_v     ), spawn "alacritty -t ncpamixer -e ncpamixer")		         -- Launch Volume Controls
  , ((modm .|. shiftMask, xK_c     ), kill)				 -- Close Focus Window
  , ((modm,               xK_space ), sendMessage NextLayout)             -- Rotate through the available layout 
@@ -156,8 +157,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 ------------------------------------------------------------------------
 -- Layouts:
 ------------------------------------------------------------------------
-
-mySpacing x i = spacingRaw x (Border i i i i) True (Border i i i i) True 
+mySpacing i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
 myLayoutHook = mkToggle (single NBFULL) (myDefaultLayout)
              where
@@ -167,16 +167,20 @@ myLayoutHook = mkToggle (single NBFULL) (myDefaultLayout)
 				 ||| grid
 
 mastStack = renamed [Replace "Master and Stack"]
-	$ mySpacing False 6
+	$ mySpacing 6
+	$ smartBorders
 	$ Tall 1 (3/100) (1/2)
 centMast = renamed [Replace "Centered Master"] 
-	$ mySpacing False 6
+	$ mySpacing 6
+	$ smartBorders
 	$ ThreeColMid 1 (3/100) (1/2)
 monocle = renamed [Replace "Monocle"] 
-	$ mySpacing False 6
+	$ mySpacing 6
+	$ smartBorders
 	$ Full
 grid = renamed [Replace "Grid"] 
-	$ mySpacing False 6
+	$ mySpacing 6
+	$ smartBorders
 	$ Grid
 ------------------------------------------------------------------------
 -- Window rules:
@@ -217,7 +221,7 @@ myStartupHook = return ()
 --main = xmonad =<< xmobar myConfig
 main  = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
-myBar = "/home/nick/.local/bin/xmobar" --flags=\"with_alsa\""
+myBar = "xmobar" --flags=\"with_alsa\""
 
 myPP  =  xmobarPP { ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]" -- Current workspace in xmobar
                 , ppVisible = xmobarColor "#98be65" ""                -- Visible but not current workspace

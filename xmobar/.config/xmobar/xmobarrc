@@ -2,7 +2,7 @@
 Config { 
 
    -- appearance
-     font =         "xft:JetBrainsMono Nerd Font:pixelsize=12",
+     font =         "xft:Hasklug Nerd Font Mono:pixelsize=12",
      additionalFonts = ["xft:Font Awesome 5 Free Solid:style=solid:pixelsize=13"]
 
    , bgColor =      "#282c34"
@@ -14,7 +14,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %StdinReader%  }{ <fc=#8e69ff:2> %disku%</fc> | %default:Master% | <fc=#ff9419:2> %pacUpdate%</fc>|   %battery% | <fc=#0095ff:2>﨟 %date%</fc> "
+   , template = " %StdinReader%  }{ <fc=#8e69ff:2> %disku%</fc> | %default:Master% | <fc=#ff9419:2> %pacupdate%</fc>|   %battery% | <fc=#0095ff:2>﨟 %date%</fc> "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -47,7 +47,7 @@ Config {
 	, Run StdinReader
 
 	--Disk Space
-	,Run DiskU [("/","<free>")] [] 60
+	,Run DiskU [("/home","HOME:<free>"),("/","ROOT:<free> -")] [] 60
 
 	--Player
 	, Run Mpris1 "spotify" [] 10
@@ -56,7 +56,7 @@ Config {
 	, Run Volume "default" "Master" [] 10
 
 	-- pacUpdate Script
-	, Run Com "/home/nick/Bin/pacUpdate.sh" [] "pacUpdate" 36000
+	, Run Com "/home/nick/.local/bin/pacupdate" [] "pacupdate" 36000
 
         -- network activity monitor (dynamic interface resolution)
         , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
