@@ -80,7 +80,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
  [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)       -- Launch Terminal
  , ((modm .|. shiftMask, xK_b     ), spawn myBrowser)          	         -- Launch Broswer
- , ((modm .|. shiftMask, xK_p     ), spawn "$HOME/Bin/editConf.sh")      -- Launch Dmenu Quick Actions
+ , ((modm .|. shiftMask, xK_p     ), spawn "$HOME/.config/rofi/scripts/edit_configs.rofi.sh")      -- Launch Dmenu Quick Actions
  , ((modm,               xK_p     ), spawn "rofi -show drun")		         -- Launch Dmenu
  , ((modm,               xK_v     ), spawn "alacritty -t ncpamixer -e ncpamixer")		         -- Launch Volume Controls
  , ((modm .|. shiftMask, xK_c     ), kill)				 -- Close Focus Window
