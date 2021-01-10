@@ -14,7 +14,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Actions.Warp
 import XMonad.Actions.NoBorders
 import XMonad.Prompt
-import XMonad.Prompt.Shell 
+import XMonad.Prompt.Shell
 
 import XMonad.Layout.Grid
 import XMonad.Util.Run
@@ -26,6 +26,7 @@ import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed
+import XMonad.Layout.ResizableTile
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -82,30 +83,33 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  , ((modm .|. shiftMask, xK_b     ), spawn myBrowser)          	         -- Launch Broswer
  , ((modm .|. shiftMask, xK_p     ), spawn "$HOME/.config/rofi/scripts/edit_configs.rofi.sh")      -- Launch Dmenu Quick Actions
  , ((modm,               xK_p     ), spawn "rofi -show drun")		         -- Launch Dmenu
- , ((modm,               xK_v     ), spawn "alacritty -t ncpamixer -e ncpamixer")		         -- Launch Volume Controls
- , ((modm .|. shiftMask, xK_c     ), kill)				 -- Close Focus Window
+ , ((modm,               xK_v     ), spawn "alacritty -t ncpamixer -e ncpamixer")		               -- Launch Volume Controls
+ , ((modm .|. shiftMask, xK_c     ), kill)				                       -- Close Focus Window
  , ((modm,               xK_space ), sendMessage NextLayout)             -- Rotate through the available layout 
- , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) -- Reset the layouts
+ , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) -- Reset the layoutsi
+
  , ((modm,               xK_x     ), sequence_ [ 
                                      sendMessage ToggleStruts,           -- Fullscreen          
- 				     sendMessage $ Toggle NBFULL
+																		 sendMessage $ Toggle NBFULL
 				     ])
  , ((modm,               xK_g     ), sequence_ [
                                      toggleWindowSpacingEnabled,         -- Toggle Gaps
- 				     toggleScreenSpacingEnabled
+																		 toggleScreenSpacingEnabled
 				     ])
  , ((modm,               xK_n     ), refresh)                   	 -- Resize / Refresh window
  , ((modm,               xK_Tab   ), sequence_ [windows W.focusDown, 
     banish UpperLeft])                                                   -- Move focus to the next window
 
- , ((modm,               xK_j     ), windows W.focusDown)                -- Move focus to the next window
- , ((modm,               xK_k     ), windows W.focusUp  )     		 -- Move focus to the previous window
  , ((modm,               xK_m     ), windows W.focusMaster  )            -- Move focus to the master window
  , ((modm,               xK_Return), windows W.swapMaster  )             -- Swap focus w/ master
  , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )               -- Swap focus w/ next
  , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )               -- Swap focus w/ previous
- , ((modm,               xK_h     ), sendMessage Shrink)                 -- Shrink the master area
- , ((modm,               xK_l     ), sendMessage Expand)                 -- Expand the master area
+
+ , ((modm,               xK_j     ), sendMessage MirrorShrink)           -- Shrink Vertically
+ , ((modm,               xK_k     ), sendMessage MirrorExpand  )     		 -- Expand Vertically
+ , ((modm,               xK_h     ), sendMessage Shrink)                 -- Shrink Master
+ , ((modm,               xK_l     ), sendMessage Expand)                 -- Expand Master
+
  , ((modm,               xK_t     ), withFocused $ windows . W.sink)     -- Push window back into tiling
  , ((modm              , xK_comma ), sendMessage (IncMasterN 1))         -- Increase # of masters
  , ((modm              , xK_period), sendMessage (IncMasterN (-1)))      -- Decrease # of masters
@@ -169,7 +173,7 @@ myLayoutHook = mkToggle (single NBFULL) (myDefaultLayout)
 mastStack = renamed [Replace "Master and Stack"]
 	$ mySpacing 6
 	$ smartBorders
-	$ Tall 1 (3/100) (1/2)
+	$ ResizableTall 1 (3/100) (1/2) []
 centMast = renamed [Replace "Centered Master"] 
 	$ mySpacing 6
 	$ smartBorders
