@@ -18,6 +18,7 @@ import XMonad.Prompt.Shell
 
 import XMonad.Layout.Grid
 import XMonad.Util.Run
+import XMonad.Util.SpawnOnce
 import XMonad.Layout.Grid
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Fullscreen
@@ -161,7 +162,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 ------------------------------------------------------------------------
 -- Layouts:
 ------------------------------------------------------------------------
-mySpacing i = spacingRaw True (Border i i i i) True (Border i i i i) True
+mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
 
 myLayoutHook = mkToggle (single NBFULL) (myDefaultLayout)
              where
@@ -171,8 +172,8 @@ myLayoutHook = mkToggle (single NBFULL) (myDefaultLayout)
 				 ||| grid
 
 mastStack = renamed [Replace "Master and Stack"]
-	$ mySpacing 6
-	$ smartBorders
+	$ mySpacing 10
+  -- $ smartBorders
 	$ ResizableTall 1 (3/100) (1/2) []
 centMast = renamed [Replace "Centered Master"] 
 	$ mySpacing 6
@@ -216,18 +217,18 @@ myLogHook = return ()
 -- Startup hook
 ------------------------------------------------------------------------
 
-myStartupHook = return ()
+myStartupHook = do
+        spawnOnce "picom"
 
 ------------------------------------------------------------------------
 --Main
 ------------------------------------------------------------------------
 
---main = xmonad =<< xmobar myConfig
 main  = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
 myBar = "xmobar" --flags=\"with_alsa\""
 
-myPP  =  xmobarPP { ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]" -- Current workspace in xmobar
+myPP  =  xmobarPP { ppCurrent = xmobarColor "#98be65" "" . wrap "|" "|" -- Current workspace in xmobar
                 , ppVisible = xmobarColor "#98be65" ""                -- Visible but not current workspace
                 , ppHidden = xmobarColor "#82AAFF" ""                 -- Hidden workspaces in xmobar
                 , ppHiddenNoWindows = xmobarColor "#c792ea" ""        -- Hidden workspaces (no windows)
@@ -254,7 +255,7 @@ myConfig = def {
         mouseBindings      = myMouseBindings,
 
         layoutHook         = myLayoutHook,
- 	manageHook         = myManageHook,
+ 	      manageHook         = myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
