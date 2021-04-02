@@ -7,14 +7,13 @@ Config {
 
    , bgColor =      "#282c34"
    , fgColor =      "#bfbfbf"
-   , position =     Top
-   , border =       BottomB
+   , position =     Static {xpos = 16, ypos =8, width = 1888, height = 24 }
    , borderColor =  "#646464"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader%  }{ <fc=#8e69ff:2> %disku%</fc> ⏽ %default:Master% ⏽ <fc=#ff9419:2> %pacupdate%</fc>⏽   %battery% ⏽ <fc=#0095ff:2>﨟 %date%</fc> "
+   , template = "  %StdinReader%  }{ <fc=#8e69ff:2> %disku%</fc> ⏽  <fc=#ff9419:2> %pacupdate%</fc>⏽   %battery% ⏽ <fc=#0095ff:2>﨟 %date%</fc>  "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start

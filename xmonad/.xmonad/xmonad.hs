@@ -50,7 +50,7 @@ myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
 -- Width of the window border in pixels.
-myBorderWidth   = 1
+myBorderWidth   = 3
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -172,19 +172,19 @@ myLayoutHook = mkToggle (single NBFULL) (myDefaultLayout)
 				 ||| grid
 
 mastStack = renamed [Replace "Master and Stack"]
-	$ mySpacing 10
+	$ mySpacing 8
   -- $ smartBorders
 	$ ResizableTall 1 (3/100) (1/2) []
 centMast = renamed [Replace "Centered Master"] 
-	$ mySpacing 6
+	$ mySpacing 8 
 	$ smartBorders
 	$ ThreeColMid 1 (3/100) (1/2)
 monocle = renamed [Replace "Monocle"] 
-	$ mySpacing 6
+	$ mySpacing 8 
 	$ smartBorders
 	$ Full
 grid = renamed [Replace "Grid"] 
-	$ mySpacing 6
+	$ mySpacing 8 
 	$ smartBorders
 	$ Grid
 ------------------------------------------------------------------------
@@ -194,12 +194,13 @@ grid = renamed [Replace "Grid"]
 myManageHook = 
 
     composeAll
-     [ className =? "MPlayer"        --> doFloat
-     , className =? "Gimp"           --> doFloat
+     [ className =? "MPlayer"         --> doFloat
+     , currentWs =? "5"               --> doCenterFloat
+     , className =? "Gimp"            --> doFloat
      , title =? "ncpamixer"           --> doCenterFloat
-     , title =? "Picture-in-Picture"           --> doFloat
-     , resource  =? "desktop_window" --> doIgnore
-     , resource  =? "kdesktop"       --> doIgnore ]
+     , title =? "Picture-in-Picture"  --> doFloat
+     , resource  =? "desktop_window"  --> doIgnore
+     , resource  =? "kdesktop"        --> doIgnore ]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -218,6 +219,7 @@ myLogHook = return ()
 ------------------------------------------------------------------------
 
 myStartupHook = do
+        --spawnOnce "picom --experimental-backends"
         spawnOnce "picom"
 
 ------------------------------------------------------------------------
