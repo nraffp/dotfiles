@@ -50,7 +50,7 @@ myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
 -- Width of the window border in pixels.
-myBorderWidth   = 3
+myBorderWidth   = 2
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -177,15 +177,12 @@ mastStack = renamed [Replace "Master and Stack"]
 	$ ResizableTall 1 (3/100) (1/2) []
 centMast = renamed [Replace "Centered Master"] 
 	$ mySpacing 8 
-	$ smartBorders
 	$ ThreeColMid 1 (3/100) (1/2)
 monocle = renamed [Replace "Monocle"] 
 	$ mySpacing 8 
-	$ smartBorders
 	$ Full
 grid = renamed [Replace "Grid"] 
 	$ mySpacing 8 
-	$ smartBorders
 	$ Grid
 ------------------------------------------------------------------------
 -- Window rules:
