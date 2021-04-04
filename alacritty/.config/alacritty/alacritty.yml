@@ -152,7 +152,6 @@ font:
 #########################################
   
 #### Gruvbox Theme ####
-
   # colors:
   # primary:
     # background: '0x282828'
@@ -179,58 +178,82 @@ font:
     # white:   '0xebdbb2'
 
 #### One Dark Theme ####
- 
-# colors:
-  # primary:
-    # background: '0x1e2127'
-    # foreground: '0xabb2bf'
+colors:
+  primary:
+    background: '0x1e2127'
+    foreground: '0xabb2bf'
 
-  # normal:
-    # black:   '0x1e2127'
-    # red:     '0xe06c75'
-    # green:   '0x98c379'
-    # yellow:  '0xd19a66'
-    # blue:    '0x61afef'
-    # magenta: '0xc678dd'
-    # cyan:    '0x56b6c2'
-    # white:   '0xabb2bf'
+  normal:
+    black:   '0x1e2127'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xabb2bf'
 
-  # bright:
-    # black:   '0x5c6370'
-    # red:     '0xe06c75'
-    # green:   '0x98c379'
-    # yellow:  '0xd19a66'
-    # blue:    '0x61afef'
-    # magenta: '0xc678dd'
-    # cyan:    '0x56b6c2'
-    # white:   '0xffffff'
+  bright:
+    black:   '0x5c6370'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xffffff'
 
 #### Sonokai Theme ####
-colors:
-   primary:
-     background: "0x2c2e34"
-     foreground: "0xe2e2e3"
+# colors:
+#    primary:
+#      background: "0x2c2e34"
+#      foreground: "0xe2e2e3"
 
-   normal:
-     black: "0x181819"
-     red: "0xfc5d7c"
-     green: "0x9ed072"
-     yellow: "0xe7c664"
-     blue: "0x76cce0"
-     magenta: "0xb39df3"
-     cyan: "0xf39660"
-     white: "0xe2e2e3"
+#    normal:
+#      black: "0x181819"
+#      red: "0xfc5d7c"
+#      green: "0x9ed072"
+#      yellow: "0xe7c664"
+#      blue: "0x76cce0"
+#      magenta: "0xb39df3"
+#      cyan: "0xf39660"
+#      white: "0xe2e2e3"
 
-   bright:
-     black: "0x181819"
-     red: "0xfc5d7c"
-     green: "0x9ed072"
-     yellow: "0xe7c664"
-     blue: "0x76cce0"
-     magenta: "0xb39df3"
-     cyan: "0xf39660"
-     white: "0xe2e2e3"
+#    bright:
+#      black: "0x181819"
+#      red: "0xfc5d7c"
+#      green: "0x9ed072"
+#      yellow: "0xe7c664"
+#      blue: "0x76cce0"
+#      magenta: "0xb39df3"
+#      cyan: "0xf39660"
+#      white: "0xe2e2e3"
 
+#### Zephyr Theme ####
+# colors:
+#    primary:
+#      background: "#282a36"
+#      foreground: "#bbc2cf"
+
+#    normal:
+#      black: "#000000"
+#      red: "#e95678"
+#      green: "#afd700"
+#      yellow: "#f0c674"
+#      blue: "#61afef"
+#      magenta: "#c678dd"
+#      cyan: "#36d0e0"
+#      white: "#FFFFFF"
+
+#    bright:
+#      black: "#000000"
+#      red: "#e95678"
+#      green: "#afd700"
+#      yellow: "#f0c674"
+#      blue: "#61afef"
+#      magenta: "#c678dd"
+#      cyan: "#36d0e0"
+#      white: "#FFFFFF"
 #### Default Theme ####
   
   # colors:
