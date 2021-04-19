@@ -50,14 +50,14 @@ myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
 -- Width of the window border in pixels.
-myBorderWidth   = 2
+myBorderWidth   = 1
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
 --
-myModMask       = mod1Mask
+myModMask       = mod4Mask
 
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
@@ -72,8 +72,8 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#787878"
-myFocusedBorderColor = "#dddddd"
+myNormalBorderColor  = "white"
+myFocusedBorderColor = "white"
 
 ----------------------------------------------------------------------------------------------
 ---------- Key bindings ----------------------------------------------------------------------
@@ -98,13 +98,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 																		 toggleScreenSpacingEnabled
 				     ])
  , ((modm,               xK_n     ), refresh)                   	 -- Resize / Refresh window
- , ((modm,               xK_Tab   ), sequence_ [windows W.focusDown, 
-    banish UpperLeft])                                                   -- Move focus to the next window
+ , ((modm,               xK_Tab   ), windows W.focusDown)                                                   -- Move focus to the next window
 
- , ((modm,               xK_m     ), windows W.focusMaster  )            -- Move focus to the master window
- , ((modm,               xK_Return), windows W.swapMaster  )             -- Swap focus w/ master
- , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )               -- Swap focus w/ next
- , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )               -- Swap focus w/ previous
+ , ((modm,               xK_m     ), windows W.focusMaster)            -- Move focus to the master window
+ , ((modm,               xK_Return), windows W.swapMaster)             -- Swap focus w/ master
+ , ((modm .|. shiftMask, xK_j     ), windows W.swapDown)               -- Swap focus w/ next
+ , ((modm .|. shiftMask, xK_k     ), windows W.swapUp)               -- Swap focus w/ previous
 
  , ((modm,               xK_j     ), sendMessage MirrorShrink)           -- Shrink Vertically
  , ((modm,               xK_k     ), sendMessage MirrorExpand  )     		 -- Expand Vertically

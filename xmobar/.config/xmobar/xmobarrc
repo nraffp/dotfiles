@@ -2,12 +2,12 @@
 Config { 
 
    -- appearance
-     font =         "xft:Source Code Pro:bold:pixelsize=12,Hack Nerd Font:style=bold:pixelsize=14",
+     font =         "xft:Source Code Pro:bold:pixelsize=11,Hack Nerd Font:style=bold:pixelsize=11",
      additionalFonts = ["xft:Nerd Font Mono:style=solid:pixelsize=13"]
 
-   , bgColor =      "#282c34"
+   , bgColor =      "#282A36"
    , fgColor =      "#bfbfbf"
-   , position =     Static {xpos = 16, ypos =8, width = 1888, height = 26 }
+   , position =     Static {xpos = 16, ypos =8, width = 1888, height = 25 }
    , borderColor =  "#646464"
 
    -- layout

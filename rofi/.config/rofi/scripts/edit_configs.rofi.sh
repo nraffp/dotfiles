@@ -16,7 +16,7 @@ case "$choice" in
 		choice="$HOME/.config/alacritty/alacritty.yml"
 	;;
 	XMOBAR)
-		choice="$HOME/.config/xmobar/xmobarrc2"
+		choice="$HOME/.config/xmobar/xmobarrc"
 	;;
 	XMONAD)
 		choice="$HOME/.xmonad/xmonad.hs"

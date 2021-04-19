@@ -5,8 +5,8 @@
 # These configuration files will be loaded in order, replacing values in files
 # loaded earlier with those loaded later in the chain. The file itself will
 # always be loaded last.
-#import:
-#  - /path/to/alacritty.yml
+# import:
+#   - /home/nick/Documents/alacritty-master/dracula.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -44,7 +44,7 @@ window:
   # by DPI and the specified value is always added at both opposing sides.
   padding:
     x: 10
-    y: 10
+    y: 5
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -121,7 +121,7 @@ font:
     family: Source Code Pro 
     style: Bold Italic
 
-  size: 7.0
+  size: 6.0
 
 
   # Offset is the extra space around each character. `offset.y` can be thought
@@ -150,126 +150,60 @@ font:
 #########################################
 ## Colors
 #########################################
-  
-#### Gruvbox Theme ####
-  # colors:
-  # primary:
-    # background: '0x282828'
-    # foreground: '0xebdbb2'
 
-  # normal:
-    # black:   '0x282828'
-    # red:     '0xcc241d'
-    # green:   '0x98971a'
-    # yellow:  '0xd79921'
-    # blue:    '0x458588'
-    # magenta: '0xb16286'
-    # cyan:    '0x689d6a'
-    # white:   '0xa89984'
-
-  # bright:
-    # black:   '0x928374'
-    # red:     '0xfb4934'
-    # green:   '0xb8bb26'
-    # yellow:  '0xfabd2f'
-    # blue:    '0x83a598'
-    # magenta: '0xd3869b'
-    # cyan:    '0x8ec07c'
-    # white:   '0xebdbb2'
-
-#### One Dark Theme ####
 colors:
   primary:
-    background: '0x1e2127'
-    foreground: '0xabb2bf'
-
+    background: '0x282a36'
+    foreground: '0xf8f8f2'
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+  search:
+    matches:
+      foreground: '0x44475a'
+      background: '0x50fa7b'
+    focused_match:
+      foreground: '0x44475a'
+      background: '0xffb86c'
+    bar:
+      background: '0x282a36'
+      foreground: '0xf8f8f2'
+  line_indicator:
+    foreground: None
+    background: None
+  selection:
+    text: CellForeground
+    background: '0x44475a'
   normal:
-    black:   '0x1e2127'
-    red:     '0xe06c75'
-    green:   '0x98c379'
-    yellow:  '0xd19a66'
-    blue:    '0x61afef'
-    magenta: '0xc678dd'
-    cyan:    '0x56b6c2'
-    white:   '0xabb2bf'
-
+    black:   '0x000000'
+    red:     '0xff5555'
+    green:   '0x50fa7b'
+    yellow:  '0xf1fa8c'
+    blue:    '0xbd93f9'
+    magenta: '0xff79c6'
+    cyan:    '0x8be9fd'
+    white:   '0xbfbfbf'
   bright:
-    black:   '0x5c6370'
-    red:     '0xe06c75'
-    green:   '0x98c379'
-    yellow:  '0xd19a66'
-    blue:    '0x61afef'
-    magenta: '0xc678dd'
-    cyan:    '0x56b6c2'
-    white:   '0xffffff'
-
-#### Sonokai Theme ####
-# colors:
-#    primary:
-#      background: "0x2c2e34"
-#      foreground: "0xe2e2e3"
-
-#    normal:
-#      black: "0x181819"
-#      red: "0xfc5d7c"
-#      green: "0x9ed072"
-#      yellow: "0xe7c664"
-#      blue: "0x76cce0"
-#      magenta: "0xb39df3"
-#      cyan: "0xf39660"
-#      white: "0xe2e2e3"
-
-#    bright:
-#      black: "0x181819"
-#      red: "0xfc5d7c"
-#      green: "0x9ed072"
-#      yellow: "0xe7c664"
-#      blue: "0x76cce0"
-#      magenta: "0xb39df3"
-#      cyan: "0xf39660"
-#      white: "0xe2e2e3"
-
-#### Zephyr Theme ####
-# colors:
-#    primary:
-#      background: "#282a36"
-#      foreground: "#bbc2cf"
-
-#    normal:
-#      black: "#000000"
-#      red: "#e95678"
-#      green: "#afd700"
-#      yellow: "#f0c674"
-#      blue: "#61afef"
-#      magenta: "#c678dd"
-#      cyan: "#36d0e0"
-#      white: "#FFFFFF"
-
-#    bright:
-#      black: "#000000"
-#      red: "#e95678"
-#      green: "#afd700"
-#      yellow: "#f0c674"
-#      blue: "#61afef"
-#      magenta: "#c678dd"
-#      cyan: "#36d0e0"
-#      white: "#FFFFFF"
-#### Default Theme ####
-  
-  # colors:
-  ## Default colors ##
-  #primary:
-    #background: '#1d1f21'
-    #foreground: '#c5c8c6'
-
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not
-    # present. If the bright foreground color is not set, or
-    # `draw_bold_text_with_bright_colors` is `false`, the normal foreground
-    # color will be used.
-    #dim_foreground: '#828482'
-    #bright_foreground: '#eaeaea'
+    black:   '0x4d4d4d'
+    red:     '0xff6e67'
+    green:   '0x5af78e'
+    yellow:  '0xf4f99d'
+    blue:    '0xcaa9fa'
+    magenta: '0xff92d0'
+    cyan:    '0x9aedfe'
+    white:   '0xe6e6e6'
+  dim:
+    black:   '0x14151b'
+    red:     '0xff2222'
+    green:   '0x1ef956'
+    yellow:  '0xebf85b'
+    blue:    '0x4d5b86'
+    magenta: '0xff46b0'
+    cyan:    '0x59dffc'
+    white:   '0xe6e6d1'
 
   # Cursor colors
   #
@@ -409,7 +343,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-#background_opacity: 1.0
+background_opacity: 1.0
 
 #selection:
   # This string contains all characters that are used as separators for
