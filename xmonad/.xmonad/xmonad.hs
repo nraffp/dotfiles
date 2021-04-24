@@ -10,6 +10,7 @@ import Data.Monoid
 import System.Exit
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.InsertPosition
 
 import XMonad.Actions.Warp
 import XMonad.Actions.NoBorders
@@ -50,7 +51,7 @@ myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
 -- Width of the window border in pixels.
-myBorderWidth   = 1
+myBorderWidth   = 0
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -215,8 +216,8 @@ myLogHook = return ()
 ------------------------------------------------------------------------
 
 myStartupHook = do
-        --spawnOnce "picom --experimental-backends"
-        spawnOnce "picom"
+        spawnOnce "~/.fehbg &"
+        spawnOnce "picom &"
 
 ------------------------------------------------------------------------
 --Main
@@ -253,7 +254,7 @@ myConfig = def {
         mouseBindings      = myMouseBindings,
 
         layoutHook         = myLayoutHook,
- 	      manageHook         = myManageHook,
+ 	      manageHook         = insertPosition End Newer <+> myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
