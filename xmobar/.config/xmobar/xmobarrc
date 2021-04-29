@@ -55,7 +55,7 @@ Config {
 	, Run Volume "default" "Master" [] 10
 
 	-- pacUpdate Script
-	, Run Com "/home/nick/.local/bin/pacupdate" [] "pacupdate" 36000
+	, Run Com "/home/nick/.local/bin/pacupdate.sh" [] "pacupdate" 36000
 
         -- network activity monitor (dynamic interface resolution)
         , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
