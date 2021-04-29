@@ -1,2 +1,2 @@
-alias ls="exa --group-directories-first --icons"
-alias ll="exa -l --git --group-directories-first --icons"
+alias ls='exa -g --icons --group-directories-first'
+alias ll='exa -l -a --icons --group-directories-first'
