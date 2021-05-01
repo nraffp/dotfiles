@@ -1,0 +1,33 @@
+# Mailbox Setup
+
+set folder = "~/.local/share/mail/raffaele.nickp@gmail.com"
+
+mailboxes =Inbox =Sent =Trash =Education =Drafts
+set spoolfile = "+Inbox"
+set record = "+Sent"
+set trash = "+Trash"
+
+# General Settings
+
+set markers = no		      # Disables the `+` displayed at line wraps
+set mark_old = no		      # Unread mail stay unread until read
+set mime_forward = yes		# attachments are forwarded with mail
+set wait_key = no		      # mutt won't ask "press key to continue"
+set date_format="%y/%m/%d %I:%M%p"
+set index_format="%2C %Z %?X?A& ? [%D] - %F - %s (%c)"
+set sidebar_width = 20
+set sidebar_visible = yes
+set sort = 'reverse-date'
+
+## Color
+
+source ~/.config/mutt/dracula.muttrc
+
+## Bindings and Macros
+
+bind index,pager \Ck sidebar-prev       # Ctrl-Shift-P - Previous Mailbox
+bind index,pager \Cj sidebar-next       # Ctrl-Shift-N - Next Mailbox
+bind index,pager \Co sidebar-open       # Ctrl-Shift-O - Open Highlighted Mailbox
+
+macro index O "<shell-escape>mbsync -a<enter>"
+

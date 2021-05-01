@@ -16,27 +16,35 @@ Inbox ~/.local/share/mail/raffaele.nickp@gmail.com/Inbox
 Channel personal-gmail-default
 Far :personal-gmail-remote:
 Near :personal-gmail-local:
-Patterns * ![Gmail]*
-SyncState *
+Patterns * ![Gmail]* !Sent* !Drafts* !Trash*
 Create Near
+Remove Near
+SyncState *
+Expunge Both
 
 Channel personal-gmail-sent
 Far :personal-gmail-remote:"[Gmail]/Sent Mail"
 Near :personal-gmail-local:Sent
-SyncState *
 Create Near
+Remove Near
+SyncState *
+Expunge Both
 
 Channel personal-gmail-trash
 Far :personal-gmail-remote:"[Gmail]/Trash"
 Near :personal-gmail-local:Trash
-SyncState *
 Create Near
+Remove Near
+SyncState *
+Expunge Both
 
 Channel personal-gmail-drafts
 Far :personal-gmail-remote:"[Gmail]/Drafts"
 Near :personal-gmail-local:Drafts
-SyncState *
 Create Near
+Remove Near
+SyncState *
+Expunge Both
 
 # Get all the channels together into a group.
 Group personal-gmail
