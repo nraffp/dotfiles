@@ -9,6 +9,8 @@ set trash = "+Trash"
 
 # General Settings
 
+set mailcap_path = /home/nick/.config/mutt/mailcap
+
 set markers = no		      # Disables the `+` displayed at line wraps
 set mark_old = no		      # Unread mail stay unread until read
 set mime_forward = yes		# attachments are forwarded with mail
