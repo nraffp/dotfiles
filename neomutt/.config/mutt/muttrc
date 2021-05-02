@@ -33,3 +33,8 @@ bind index,pager \Co sidebar-open       # Ctrl-Shift-O - Open Highlighted Mailbo
 
 macro index O "<shell-escape>mbsync -a<enter>"
 
+bind pager <up> previous-line           
+bind pager <down> next-line               
+bind pager k previous-line              # Scrolling within messages
+bind pager j next-line 
+
