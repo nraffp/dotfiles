@@ -5,6 +5,7 @@ declare options=("Alacritty
 Kitty
 Picom
 Mutt
+Mbsync
 Xmonad
 Xmobar
 Xinitrc
@@ -30,6 +31,9 @@ case "$choice" in
 	;;
 	Mutt)
 		choice="$HOME/.config/mutt/muttrc"
+	;;
+	Mbsync)
+		choice="$HOME/.mbsyncrc"
 	;;
 	Xmobar)
 		choice="$HOME/.config/xmobar/xmobarrc"

@@ -39,7 +39,7 @@ import XMonad.Hooks.DynamicLog
 ---------- Default Programs ---------------------------------------------------------------------------
 
 myTerminal = "kitty"
-myBrowser  = "firefox-nightly"
+myBrowser  = "google-chrome-stable"
 
 
 -- Whether focus follows the mouse pointer.
