@@ -10,16 +10,19 @@ set trash = "+Trash"
 # General Settings
 
 set mailcap_path = /home/nick/.config/mutt/mailcap
-##auto_view text/html
+# auto_view text/html
+alternative_order text/enriched text/plain text/html
 
 set markers = no		      # Disables the `+` displayed at line wraps
 set mark_old = no		      # Unread mail stay unread until read
 set mime_forward = yes		# attachments are forwarded with mail
 set wait_key = no		      # mutt won't ask "press key to continue"
-set date_format="%Y-%m-%d %I:%M%p"
+set date_format="%Y-%m-%d %H:%M"
 set index_format="%2C %Z %?X?A& ? [%D] - %F - %s (%c)"
 set sort = 'reverse-date'
 set display_filter = "tac | sed '/\\\[-- Autoview/,+1d' | tac" # Supress Autoview Text
+
+set pager_index_lines=10
 
 set sidebar_visible = yes
 set sidebar_width = 20
@@ -34,14 +37,30 @@ source ~/.config/mutt/dracula.muttrc
 
 ## Bindings and Macros
 
+bind index,pager i noop
+bind index,pager g noop
+
 bind index,pager \Ck sidebar-prev       # Ctrl-Shift-P - Previous Mailbox
 bind index,pager \Cj sidebar-next       # Ctrl-Shift-N - Next Mailbox
 bind index,pager \Co sidebar-open       # Ctrl-Shift-O - Open Highlighted Mailbox
 
+macro index,pager A  "<save-message>=Trash<enter>"
 macro index O "<shell-escape>mbsync -a<enter>"
 
 bind pager <up> previous-line           
 bind pager <down> next-line               
-bind pager k previous-line              # Scrolling within messages
-bind pager j next-line 
+bind pager K previous-line              
+bind pager J next-line                  # Naviagtion 
+bind index j next-entry
+bind index k previous-entry
+bind index D delete-message
+bind index \031 previous-undeleted	    # Mouse wheel
+bind index \005 next-undeleted		      # Mouse wheel
+bind pager \031 previous-line		        # Mouse wheel
+bind pager \005 next-line		            # Mouse wheel
+bind index G last-entry
+bind index gg first-entry
+
+bind index,pager S sync-mailbox
+bind attach l view-mailcap
 

@@ -25,18 +25,38 @@ color index		color141	default		~v # messages part of a collapsed thread
 
 # message headers ---- foreground ---- background -----------------------------
 color hdrdefault	color117	default
-color header		color231	default		^Subject:.*
+color header		  color231	default		^Subject:.*
 
 # message body ------- foreground ---- background -----------------------------
 color attachment	color228	default
-color body		color231	default		[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email addresses
-color body		color228	default		(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # URLs
-color body		color231	default		(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* text
-color body		color231	default		(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ text
-color body		color231	default		(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ text
-color quoted		color61		default
-color quoted1		color117	default
-color quoted2		color84		default
-color quoted3		color215	default
-color quoted4		color212	default
-color signature		color212	default
+color body	    	color231	default		[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email addresses
+color body		    color228	default		(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # URLs
+color body		    color231	default		(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* text
+color body		    color231	default		(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ text
+color body		    color231	default		(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ text
+color quoted		  color61		default
+color quoted1		  color117	default
+color quoted2		  color84		default
+color quoted3		  color215	default
+color quoted4		  color212	default
+color signature	  color212	default
+###############################################################################
+# User modification
+
+# Index defaults
+color index_author   magenta   default '.*'
+color index_subject  cyan  default '.*'
+
+# Index New mail
+color index_author   brightmagenta   default '~N'
+color index_subject  brightcyan  default '~N'
+
+# Header
+color header brightgreen    default "^(Date)"
+color header brightmagenta  default "^(From)"
+color header brightwhite     default "^(To)"
+color header brightcyan     default "^(Subject)"
+color header brightwhite    default "^(CC|BCC)"
+
+# Body
+
