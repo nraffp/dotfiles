@@ -6,7 +6,8 @@
 # loaded earlier with those loaded later in the chain. The file itself will
 # always be loaded last.
 import:
-   - /home/nick/repos/alacritty-dracula/dracula.yml
+   # - /home/nick/repos/alacritty-dracula/dracula.yml
+   - /home/nick/.config/alacritty/themes/tokyonight-storm.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -121,7 +122,7 @@ font:
     family: Source Code Pro 
     style: Bold Italic
 
-  size: 8.0
+  size: 7.0
 
 
   # Offset is the extra space around each character. `offset.y` can be thought

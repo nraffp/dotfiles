@@ -11,6 +11,7 @@ import System.Exit
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.InsertPosition
+import XMonad.Hooks.DynamicLog
 
 import XMonad.Actions.Warp
 import XMonad.Actions.NoBorders
@@ -34,11 +35,10 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 import Graphics.X11.ExtraTypes.XF86
-import XMonad.Hooks.DynamicLog
 -------------------------------------------------------------------------------------------------------
 ---------- Default Programs ---------------------------------------------------------------------------
 
-myTerminal = "kitty"
+myTerminal = "st"
 myBrowser  = "google-chrome-stable"
 
 
@@ -78,22 +78,18 @@ myFocusedBorderColor = "white"
 
 ----------------------------------------------------------------------------------------------
 ---------- Key bindings ----------------------------------------------------------------------
-
+fullScreenToggle = [sendMessage ToggleStruts,sendMessage $ Toggle NBFULL]
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
- [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)       -- Launch Terminal
- , ((modm .|. shiftMask, xK_b     ), spawn myBrowser)          	         -- Launch Broswer
- , ((modm .|. shiftMask, xK_p     ), spawn "$HOME/.config/rofi/scripts/edit-configs-rofi.sh")      -- Launch Dmenu Quick Actions
- , ((modm,               xK_p     ), spawn "rofi -show drun")		         -- Launch Dmenu
- , ((modm,               xK_v     ), spawn "alacritty -t ncpamixer -e ncpamixer")		               -- Launch Volume Controls
- , ((modm .|. shiftMask, xK_c     ), kill)				                       -- Close Focus Window
- , ((modm,               xK_space ), sendMessage NextLayout)             -- Rotate through the available layout 
- , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) -- Reset the layoutsi
-
- , ((modm,               xK_x     ), sequence_ [ 
-                                     sendMessage ToggleStruts,           -- Fullscreen          
-																		 sendMessage $ Toggle NBFULL
-				     ])
+ [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)                                  -- Launch Terminal
+ , ((modm .|. shiftMask, xK_b     ), spawn myBrowser)          	                                    -- Launch Broswer
+ , ((modm .|. shiftMask, xK_p     ), spawn "$HOME/.config/rofi/scripts/edit-configs-rofi.sh")       -- Launch Dmenu Quick Actions
+ , ((modm,               xK_p     ), spawn "rofi -show drun")		                                    -- Launch Dmenu
+ , ((modm,               xK_v     ), spawn "alacritty -t ncpamixer -e ncpamixer")		                -- Launch Volume Controls
+ , ((modm .|. shiftMask, xK_c     ), kill)				                                                  -- Close Focus Window
+ , ((modm,               xK_space ), sendMessage NextLayout)                                        -- Rotate through the available layout 
+ , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)                            -- Reset the layoutsi
+ , ((modm,               xK_x     ), sequence_ fullScreenToggle)
  , ((modm,               xK_g     ), sequence_ [
                                      toggleWindowSpacingEnabled,         -- Toggle Gaps
 																		 toggleScreenSpacingEnabled
@@ -167,9 +163,9 @@ mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
 myLayoutHook = mkToggle (single NBFULL) (myDefaultLayout)
              where
                myDefaultLayout =     mastStack
-				 ||| centMast
-				 ||| monocle
-				 ||| grid
+				                      |||    centMast
+				                      |||    monocle
+				                      |||    grid
 
 mastStack = renamed [Replace "Master and Stack"]
 	$ mySpacing 8

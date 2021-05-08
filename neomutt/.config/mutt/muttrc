@@ -1,4 +1,4 @@
-# Mailbox Setup
+## Mailbox Setup
 
 set folder = "~/.local/share/mail/raffaele.nickp@gmail.com"
 
@@ -7,23 +7,25 @@ set spoolfile = "+Inbox"
 set record = "+Sent"
 set trash = "+Trash"
 
-# General Settings
+## General Settings
 
 set mailcap_path = /home/nick/.config/mutt/mailcap
-# auto_view text/html
+auto_view text/plain
 alternative_order text/enriched text/plain text/html
 
 set markers = no		      # Disables the `+` displayed at line wraps
 set mark_old = no		      # Unread mail stay unread until read
 set mime_forward = yes		# attachments are forwarded with mail
 set wait_key = no		      # mutt won't ask "press key to continue"
-set date_format="%Y-%m-%d %H:%M"
-set index_format="%2C %Z %?X?A& ? [%D] - %F - %s (%c)"
+
+set signature = '~/.config/mutt/signature'
 set sort = 'reverse-date'
 set display_filter = "tac | sed '/\\\[-- Autoview/,+1d' | tac" # Supress Autoview Text
 
-set pager_index_lines=10
+set date_format= "%Y-%m-%d %H:%M"
+set index_format= "%2C %Z %?X?A& ? [%D] - %F - %s (%c)"
 
+set pager_index_lines=10
 set sidebar_visible = yes
 set sidebar_width = 20
 set sidebar_short_path = yes
