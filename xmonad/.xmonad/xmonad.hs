@@ -38,8 +38,8 @@ import Graphics.X11.ExtraTypes.XF86
 -------------------------------------------------------------------------------------------------------
 ---------- Default Programs ---------------------------------------------------------------------------
 
-myTerminal = "st"
-myBrowser  = "google-chrome-stable"
+myTerminal = "alacritty"
+myBrowser  = "firefox"
 
 
 -- Whether focus follows the mouse pointer.
