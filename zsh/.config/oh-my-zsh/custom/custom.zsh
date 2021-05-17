@@ -13,6 +13,8 @@ alias ls='exa -g --group-directories-first --icons'
 
 # Path
 
+path+='/home/nick/.local/bin'
+export PATH
 
 # Plugins
 
