@@ -57,5 +57,5 @@ case "$choice" in
 		exit 1
 	;;
 esac
-kitty -e nvim "$choice"
+alacritty -e nvim "$choice"
 

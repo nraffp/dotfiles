@@ -51,7 +51,7 @@ myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
 -- Width of the window border in pixels.
-myBorderWidth   = 0
+myBorderWidth   = 0 
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -92,7 +92,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  , ((modm,               xK_x     ), sequence_ fullScreenToggle)
  , ((modm,               xK_g     ), sequence_ [
                                      toggleWindowSpacingEnabled,         -- Toggle Gaps
-																		 toggleScreenSpacingEnabled
+							         toggleScreenSpacingEnabled
 				     ])
  , ((modm,               xK_n     ), refresh)                   	 -- Resize / Refresh window
  , ((modm,               xK_Tab   ), windows W.focusDown)                                                   -- Move focus to the next window

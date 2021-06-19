@@ -7,7 +7,7 @@
 # always be loaded last.
 import:
    # - /home/nick/repos/alacritty-dracula/dracula.yml
-   - /home/nick/.config/alacritty/themes/tokyonight-storm.yml
+   - /home/nick/.config/alacritty/themes/gruvbox.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -44,8 +44,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 10
-    y: 10
+    x: 6
+    y: 6
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -104,22 +104,22 @@ window:
 font:
   normal:
     # family: Hasklug Nerd Font Mono
-    family: Source Code Pro
+    family: Fira Code
     style: Regular
 
   bold:
     # family: Hasklug Nerd Font Mono
-    family: Source Code Pro
+    family: Fira Code
     style: Bold
   
   italic:
     # family: Hasklug Nerd Font Mono
-    family: Source Code Pro 
+    family: Fira Code 
     style: Italic
 
   bold_italic:
     # family: Hasklug Nerd Font Mono
-    family: Source Code Pro 
+    family: Fire Code
     style: Bold Italic
 
   size: 7.0

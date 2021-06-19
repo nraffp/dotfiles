@@ -2,7 +2,7 @@
 Config { 
 
    -- appearance
-     font =         "xft:Source Code Pro:bold:pixelsize=11,Hack Nerd Font:style=bold:pixelsize=11",
+     font =         "xft:Fira Code:bold:pixelsize=11,Hack Nerd Font:style=bold:pixelsize=11",
      additionalFonts = ["xft:Nerd Font Mono:style=solid:pixelsize=13"]
 
    , bgColor =      "#282A36"
