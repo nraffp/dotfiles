@@ -1,0 +1,23 @@
+#!/bin/sh
+
+autoload -Uz colors; colors
+
+# Sources
+source "$ZDOTDIR/functions.zsh"
+source "$ZDOTDIR/alias.zsh"
+
+# Space Ship Prompt
+zsh_add_plugin "spaceship-prompt/spaceship-prompt"
+autoload -U promptinit; promptinit
+prompt spaceship
+
+SPACESHIP_VI_MODE_SHOW=false
+
+# Menu Select
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu select
+
+
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+

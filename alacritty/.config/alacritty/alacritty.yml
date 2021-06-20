@@ -103,26 +103,22 @@ window:
 #########################################
 font:
   normal:
-    # family: Hasklug Nerd Font Mono
     family: Fira Code
     style: Regular
 
   bold:
-    # family: Hasklug Nerd Font Mono
     family: Fira Code
     style: Bold
   
   italic:
-    # family: Hasklug Nerd Font Mono
     family: Fira Code 
     style: Italic
 
   bold_italic:
-    # family: Hasklug Nerd Font Mono
     family: Fire Code
     style: Bold Italic
 
-  size: 7.0
+  size: 9.0
 
 
   # Offset is the extra space around each character. `offset.y` can be thought
