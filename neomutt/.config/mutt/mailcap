@@ -10,6 +10,6 @@ video/*; setsid mpv --quiet %s &; copiousoutput;
 audio/*; mpv %s ;
 
 ## Applications
-application/pdf; openfile %s ;
+application/pdf; zathura %s ;
 application/pgp-encrypted; gpg -d '%s'; copiousoutput;
 application/pgp-keys; gpg --import '%s'; copiousoutput;

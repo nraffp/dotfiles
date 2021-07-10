@@ -23,7 +23,9 @@ set sort = 'reverse-date'
 set display_filter = "tac | sed '/\\\[-- Autoview/,+1d' | tac" # Supress Autoview Text
 
 set date_format= "%Y-%m-%d %H:%M"
-set index_format= "%2C %Z %?X?A& ? [%D] - %F - %s (%c)"
+
+# set index_format= "%2C %Z %?X?A& ? [%D] - %F - %s (%c)"
+set index_format=" %zs %zc %zt | %-46.46L  %?X?& ? %.60s %?M10?(%1M)&? %> %{!%a %d %h %H:%M}      "
 
 set pager_index_lines=10
 set sidebar_visible = yes
@@ -35,7 +37,10 @@ set sidebar_format = '%D%?F? [%F]?%* %?N?%N/? %?S?%S? '
 
 ## Color
 
-source ~/.config/mutt/dracula.muttrc
+# source ~/.config/mutt/dracula.muttrc
+# source ~/.config/mutt/gruvbox/colors-gruvbox-shuber.muttrc
+# source ~/.config/mutt/gruvbox/colors-gruvbox-shuber-extended.muttrc
+# source ~/.config/mutt/gruvbox/gruvbox-sheoak.muttrc
 
 ## Bindings and Macros
 

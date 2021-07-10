@@ -12,11 +12,15 @@ autoload -U promptinit; promptinit
 prompt spaceship
 
 SPACESHIP_VI_MODE_SHOW=false
+SPACESHIP_USER_SHOW=always
 
 # Menu Select
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
+
+## Sets default Editor
+export EDITOR="nvim"
 
 
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
