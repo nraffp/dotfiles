@@ -1,20 +1,25 @@
-#!/bin/sh
+#!/bin/zsh
 
 autoload -Uz colors; colors
 
-# Sources
+#### Sources ####
+
 source "$ZDOTDIR/functions.zsh"
 source "$ZDOTDIR/alias.zsh"
 
-# Space Ship Prompt
-zsh_add_plugin "spaceship-prompt/spaceship-prompt"
-autoload -U promptinit; promptinit
-prompt spaceship
+#### Space Ship Prompt ####
 
+## Linux Settings
+if [ $(uname -s) = "Linux" ];then
+	zsh_add_plugin "spaceship-prompt/spaceship-prompt"
+	autoload -U promptinit; promptinit
+	prompt spaceship
+fi
 SPACESHIP_VI_MODE_SHOW=false
 SPACESHIP_USER_SHOW=always
 
-# Menu Select
+#### Menu Select ####
+
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
@@ -22,6 +27,8 @@ zstyle ':completion:*' menu select
 ## Sets default Editor
 export EDITOR="nvim"
 
-
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
+## Mac Settings
+export PATH=/opt/homebrew/bin:$PATH
+eval "$(starship init zsh)"
