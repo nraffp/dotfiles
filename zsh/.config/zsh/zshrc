@@ -7,8 +7,6 @@ autoload -Uz colors; colors
 source "$ZDOTDIR/functions.zsh"
 source "$ZDOTDIR/alias.zsh"
 
-#### Space Ship Prompt ####
-
 ## Linux Settings
 if [ $(uname -s) = "Linux" ];then
 	zsh_add_plugin "spaceship-prompt/spaceship-prompt"
@@ -31,4 +29,6 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
 ## Mac Settings
 export PATH=/opt/homebrew/bin:$PATH
+
+#### Star Ship Prompt ####
 eval "$(starship init zsh)"
