@@ -2,10 +2,7 @@
 export ZDOTDIR=$HOME/.config/zsh
 
 # Path Variable
-export PATH="/home/nick/.local/bin/scripts":$PATH
+export PATH="$HOME/.cargo/bin":$PATH
 
 # Sets default Editor
 export EDITOR="nvim"
-
-# Set QT Enviorment Variable
-export QT_QPA_PLATFORMTHEME=qt5ct
