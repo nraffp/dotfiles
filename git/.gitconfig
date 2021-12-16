@@ -1,0 +1,10 @@
+[user]
+    signingKey = 9F46A90772096031
+    name = Nick Raffaele
+    email = Raffaele.nickp@gmail.com
+[commit]
+    gpgSign = true
+[gpg]
+    program = gpg
+
+
