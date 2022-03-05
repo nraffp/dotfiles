@@ -14,3 +14,15 @@ function zsh_add_plugin() {
         git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
     fi
 }
+
+function sayHello(){
+    echo "Hello"
+}
+
+function is_on_mac(){
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+        return true
+    else
+        return false
+    fi
+}

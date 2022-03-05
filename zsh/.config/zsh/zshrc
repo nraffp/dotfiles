@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 autoload -Uz colors; colors
+typeset -U path
 
 #### Sources ####
 
@@ -15,6 +16,11 @@ if [ $(uname -s) = "Linux" ];then
 fi
 SPACESHIP_VI_MODE_SHOW=false
 SPACESHIP_USER_SHOW=always
+
+## Mac Settings
+
+if is_on_mac; then 
+fi
 
 #### Menu Select ####
 
@@ -41,4 +47,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
+
+#### NODE ####
+export NODE_OPTIONS=--openssl-legacy-provider
 
