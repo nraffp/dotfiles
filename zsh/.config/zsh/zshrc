@@ -8,19 +8,22 @@ typeset -U path
 source "$ZDOTDIR/functions.zsh"
 source "$ZDOTDIR/alias.zsh"
 
+## Plugins ##
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting" &&
+
+## Prompt ##
+autoload -U promptinit; promptinit
+
+eval "$(starship init zsh)"
+
 ## Linux Settings
 if [ $(uname -s) = "Linux" ];then
-	zsh_add_plugin "spaceship-prompt/spaceship-prompt"
-	autoload -U promptinit; promptinit
-	prompt spaceship
 fi
-SPACESHIP_VI_MODE_SHOW=false
-SPACESHIP_USER_SHOW=always
 
 ## Mac Settings
-
 if is_on_mac; then 
 fi
+export PATH=/opt/homebrew/bin:$PATH
 
 #### Menu Select ####
 
@@ -30,14 +33,6 @@ zstyle ':completion:*' menu select
 
 ## Sets default Editor
 export EDITOR="nvim"
-
-zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-
-## Mac Settings
-export PATH=/opt/homebrew/bin:$PATH
-
-#### Star Ship Prompt ####
-eval "$(starship init zsh)"
 
 #### NVM ####
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
