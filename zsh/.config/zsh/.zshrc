@@ -11,10 +11,6 @@ source "$ZDOTDIR/alias.zsh"
 ## Plugins ##
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting" &&
 
-## Prompt ##
-autoload -U promptinit; promptinit
-
-eval "$(starship init zsh)"
 
 ## Linux Settings
 if [ $(uname -s) = "Linux" ];then
@@ -27,6 +23,10 @@ fi
 
 ## Cross-platform PATH settings
 export PATH=$HOME/bin:$PATH
+
+## Prompt ##
+autoload -U promptinit; promptinit
+eval "$(starship init zsh)"
 
 #### Menu Select ####
 
