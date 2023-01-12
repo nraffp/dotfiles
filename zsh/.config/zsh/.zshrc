@@ -19,6 +19,7 @@ fi
 ## Mac Settings
 if is_on_mac; then 
     export PATH=/opt/homebrew/bin:$PATH
+    export PATH=/opt/homebrew/sbin:$PATH
 fi
 
 ## Cross-platform PATH settings
