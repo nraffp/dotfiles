@@ -112,15 +112,15 @@ window:
 # Font configuration
 font:
   normal:
-    family: IosevkaTerm Nerd Font Mono
+    family: IosevkaTerm Nerd Font 
     style: Medium
 
   bold:
-    family: IosevkaTerm Nerd Font Mono
-    style: Bold 
+    family: IosevkaTerm Nerd Font
+    style: Bold
 
   italic:
-    family: IosevkaTerm Nerd Font Mono
+    family: IosevkaTerm Nerd Font
     style: Italic
 
   size: 17.0
