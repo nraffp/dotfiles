@@ -1,6 +1,0 @@
-/plugins
-.zcompdump
-.zsh_history
-.zsh_sessions
-.zshrc_override
-.zshenv_override
