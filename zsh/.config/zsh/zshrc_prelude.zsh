@@ -4,7 +4,7 @@ autoload -Uz colors; colors
 typeset -U path
 
 #### Sources ####
-source "$HOME/.zfuncs"
+source "$HOME/.config/zsh/funcs.zsh"
 source "$HOME/.config/zsh/alias.zsh"
 
 ## Plugins ##
