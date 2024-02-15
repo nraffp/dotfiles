@@ -9,6 +9,8 @@ source "$HOME/.config/zsh/alias.zsh"
 
 ## Plugins ##
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting" &&
+zsh_add_plugin "spaceship-prompt/spaceship-prompt" "spaceship.zsh" &&
+# zsh_add_plugin "romkatv/powerlevel10k" "powerlevel10k.zsh-theme" &&
 
 ## Linux Settings
 if [ $(uname -s) = "Linux" ];then
@@ -22,7 +24,7 @@ fi
 
 ## Prompt ##
 autoload -U promptinit; promptinit
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 #### Menu Select ####
 autoload -Uz compinit
