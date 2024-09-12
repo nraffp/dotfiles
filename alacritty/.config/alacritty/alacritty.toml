@@ -1,0 +1,71 @@
+[colors.bright]
+black = "#666666"
+blue = "#7AB5FC"
+cyan = "#5eead4"
+green = "#86efac"
+magenta = "#f0abfc"
+red = "#fca5a5"
+white = "#eaeaea"
+yellow = "#fef08a"
+
+[colors.cursor]
+cursor = "#FFFFFF"
+text = "CellBackground"
+
+[colors.normal]
+black = "#1d1f21"
+blue = "#60a5fa"
+cyan = "#5eead4"
+green = "#68E796"
+magenta = "#e879f9"
+red = "#f87171"
+white = "#c5c8c6"
+yellow = "#f0c674"
+
+[colors.primary]
+background = "#141414"
+foreground = "#c5c8c6"
+
+[cursor]
+blink_timeout = 0
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+builtin_box_drawing = true
+size = 20
+
+[font.bold]
+family = "BerkeleyMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "BerkeleyMono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "BerkeleyMono Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[shell]
+program = "/opt/homebrew/bin/fish"
+
+[window]
+decorations = "full"
+dynamic_padding = true
+dynamic_title = false
+opacity = 1.0
+title = "Alacritty Terminal"
+
+[window.padding]
+x = 0
+y = 0

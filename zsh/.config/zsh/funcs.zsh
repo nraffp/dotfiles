@@ -21,18 +21,6 @@ function zsh_add_plugin() {
     fi
 }
 
-function sayHello(){
-    echo "Hello"
-}
-
-function is_on_mac(){
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-        return true
-    else
-        return false
-    fi
-}
-
 function alias_cat() {
     if command -v "bat" &> /dev/null; then
         bat "$@"
