@@ -3,6 +3,6 @@
 if status is-interactive
     switch (uname) 
         case Darwin
-            fish_add_path -P "/opt/homebrew/bin"
+            fish_add_path -mpP "/opt/homebrew/bin"
     end
 end
