@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export EDITOR:nvim
 SETUVAR __fish_git_prompt_color:brmagenta
 SETUVAR __fish_git_prompt_color_prefix:brblack
 SETUVAR __fish_git_prompt_color_suffic:brblack
