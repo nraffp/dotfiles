@@ -3,6 +3,6 @@ function fish_prompt
 end
 
 # Print a newline between each prompt
-function foo --on-event fish_prompt
-    printf "\n"
+function newline --on-event fish_prompt
+    echo
 end
