@@ -1,19 +1,11 @@
-config-file = ?override
-
-font-family = "Berkeley Mono"
-font-style = "Medium"
-font-style-bold = "ExtraBold"
-font-style-italic = "Medium Oblique"
-font-style-bold-italic = "ExtraBold Oblique"
-
 cursor-style = underline
 shell-integration-features = no-cursor
-window-padding-x = 0,0
-window-padding-y = 0,0
+window-padding-x = 2,2
+window-padding-y = 2,2
 window-padding-balance = true
-window-padding-color = background
+window-padding-color = extend
 window-step-resize = true
 font-thicken = false
-background-opacity = 0.95
+background-opacity = 1
 
-theme = "NvimDark"
+config-file = ?override
